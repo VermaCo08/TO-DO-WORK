@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --paper: #EDEAE1;
@@ -219,6 +220,13 @@
 .priority.low {
   color: #5C7A5E;
 }
+.creator-credit {
+  margin-top: 35px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
 
   footer button {
     background: none;
@@ -268,6 +276,16 @@
       <button id="clearDone">Clear stamped</button>
     </footer>
   </div>
+  <div>
+ <footer> 
+    <div class="creator-credit">
+         Published by Harsh Verma <br>
+        Instagram: <a href="https://www.instagram.com/harshverma3618/" target="_blank">
+            @harshverma3618
+        </a>
+    </div>
+ </footer>
+</div>
 
 <script>
   const list = document.getElementById('list');
