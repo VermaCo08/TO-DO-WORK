@@ -71,10 +71,10 @@
 
   .subhead { font-size: 13px; color: var(--ink-soft); font-weight: bold; }
 
-  .entry-row {
+.entry-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 118px 90px;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) 90px 75px;
+  gap: 8px;
   margin-bottom: 30px;
 }
 
@@ -98,16 +98,20 @@
   .entry-row button {
     font-family: 'Space Mono', monospace;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     background: var(--ink);
     color: var(--paper);
     border: none;
-    padding: 0 18px;
+    padding: 0 8px;
     cursor: pointer;
     transition: transform 0.12s ease, background 0.12s ease;
   }
+  .entry-row select {
+  font-size: 13px;
+  padding: 8px 4px;
+}
 
   .entry-row button:hover { background: var(--stamp-red); }
   .entry-row button:active { transform: scale(0.96); }
