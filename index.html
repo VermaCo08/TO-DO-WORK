@@ -116,10 +116,10 @@
 
 li.item {
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr) 118px 90px;
-  gap: 10px;
+  grid-template-columns: 35px minmax(0, 1fr) 75px 40px;
   align-items: center;
-  padding: 9px 0 9px 2px;
+  gap: 6px;
+  padding: 9px 0;
   border-bottom: 1px dashed var(--paper-line);
 }
 
@@ -147,14 +147,15 @@ li.item {
     color: var(--stamp-sage);
   }
 
-  .item-text {
-    flex: 1;
-    font-family: 'Fraunces', serif;
-    font-size: 17px;
-    line-height: 1.35;
-    padding-top: 1px;
-    word-break: break-word;
-  }
+ .item-text {
+  min-width: 0;
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  line-height: 1.35;
+  padding-top: 1px;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
 
   li.item.done .item-text {
     color: var(--ink-soft);
@@ -191,14 +192,15 @@ li.item {
     color: var(--ink-soft);
     letter-spacing: 0.03em;
   }
-  .priority {
+.priority {
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   padding: 3px 6px;
   border: 1px solid currentColor;
   justify-self: center;
-  }
+  margin-left: 0;
+}
 
 .priority.high {
   color: #A63A3A;
