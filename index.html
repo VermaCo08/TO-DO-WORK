@@ -112,9 +112,10 @@
   li.item {
     display: flex;
     align-items: flex-start;
-    gap: 4px;
+    gap: 6px;
     padding: 9px 0 9px 2px;
     border-bottom: 1px dashed var(--paper-line);
+    justify-content: space-between;
   }
 
   .check {
@@ -180,7 +181,8 @@
     color: var(--ink-soft);
     font-size: 16px;
     cursor: pointer;
-    padding: 0 2px;
+    padding: 0 0 0 4px;
+    margin-left: 4px;
     align-self: center;
     line-height: 1;
   }
@@ -203,11 +205,13 @@
     letter-spacing: 0.03em;
   }
   .priority {
-  font-size: 15px;
+  flex: none;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   padding: 3px 6px;
   border: 1px solid currentColor;
+  margin-left: auto;
   }
 
 .priority.high {
