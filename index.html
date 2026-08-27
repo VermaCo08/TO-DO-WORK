@@ -71,7 +71,12 @@
 
   .subhead { font-size: 13px; color: var(--ink-soft); font-weight: bold; }
 
-  .entry-row { display: flex; gap: 10px; margin-bottom: 30px; }
+  .entry-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 118px 90px;
+  gap: 10px;
+  margin-bottom: 30px;
+}
 
   .entry-row input[type="text"] {
     flex: 1;
@@ -111,12 +116,11 @@
 
 li.item {
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr) auto 40px;
+  grid-template-columns: 30px minmax(0, 1fr) 118px 90px;
+  gap: 10px;
   align-items: center;
-  gap: 8px;
   padding: 9px 0 9px 2px;
   border-bottom: 1px dashed var(--paper-line);
-  position: relative;
 }
 
   .check {
@@ -167,7 +171,7 @@ li.item {
   justify-self: center;
   align-self: center;
   margin: 0;
-  padding: 0 2px;
+  padding: 0;
 }
   .remove:hover { color: var(--stamp-red); }
 
@@ -188,12 +192,12 @@ li.item {
     letter-spacing: 0.03em;
   }
   .priority {
-  flex: none;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   padding: 3px 6px;
   border: 1px solid currentColor;
+  justify-self: center;
   }
 
 .priority.high {
