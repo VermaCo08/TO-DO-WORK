@@ -109,14 +109,15 @@
 
   ul.list { list-style: none; margin: 0; padding: 0; }
 
-  li.item {
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-    padding: 9px 0 9px 2px;
-    border-bottom: 1px dashed var(--paper-line);
-    justify-content: space-between;
-  }
+li.item {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 0 9px 2px;
+  border-bottom: 1px dashed var(--paper-line);
+  position: relative;
+}
 
   .check {
     flex: none;
@@ -158,34 +159,16 @@
     text-decoration-thickness: 1.5px;
   }
 
-  .stamp {
-    flex: none;
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--stamp-red);
-    border: 1px solid var(--stamp-red);
-    padding: 2px 6px;
-    transform: rotate(-4deg);
-    opacity: 0;
-    transition: opacity 0.15s ease;
-    align-self: center;
-  }
+
 
   li.item.done .stamp { opacity: 0.8; }
 
-  .remove {
-    flex: none;
-    background: none;
-    border: none;
-    color: var(--ink-soft);
-    font-size: 16px;
-    cursor: pointer;
-    padding: 0 0 0 4px;
-    margin-left: 4px;
-    align-self: center;
-    line-height: 1;
-  }
+.remove {
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  padding: 0 2px;
+}
   .remove:hover { color: var(--stamp-red); }
 
   .empty {
@@ -211,7 +194,6 @@
   text-transform: uppercase;
   padding: 3px 6px;
   border: 1px solid currentColor;
-  margin-left: auto;
   }
 
 .priority.high {
@@ -892,12 +874,6 @@ function render() {
 
 
       // Cleared stamp
-      const stamp =
-        document.createElement('span');
-
-      stamp.className = 'stamp';
-
-      stamp.textContent = 'cleared';
 
 
       // Delete
@@ -921,7 +897,6 @@ function render() {
       li.appendChild(check);
       li.appendChild(span);
       li.appendChild(priority);
-      li.appendChild(stamp);
       li.appendChild(remove);
 
       list.appendChild(li);
