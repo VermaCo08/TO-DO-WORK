@@ -396,6 +396,7 @@ li.item {
       <br> ======YOU CAN DO IT======
       </div>
     </header>
+    <button id="copyPreviousDay">📋 Copy Previous Day</button>
 
 <div class="calendar-control">
     <button class="calendar-toggle" id="calendarToggle">
@@ -472,6 +473,7 @@ const monthYear = document.getElementById('monthYear');
 const calendarDays = document.getElementById('calendarDays');
 const selectedDateElement = document.getElementById('selectedDate');
 const selectedDateTop = document.getElementById('selectedDateTop');
+const copyPreviousDayBtn = document.getElementById('copyPreviousDay');
 
 
 // ====================
@@ -808,6 +810,83 @@ function clearDone() {
 
   showCalendar();
 }
+// ====================
+// COPY PREVIOUS DAY
+// ====================
+
+function copyPreviousDay() {
+
+  // Get previous day
+  const previousDate = new Date(selectedDate);
+
+  previousDate.setDate(
+    previousDate.getDate() - 1
+  );
+
+  const previousDateString =
+    formatDate(previousDate);
+
+  const currentDateString =
+    formatDate(selectedDate);
+
+
+  // Get previous day's tasks
+  const previousTasks =
+    tasks.filter(
+      t => t.date === previousDateString
+    );
+
+
+  // No tasks found
+  if (previousTasks.length === 0) {
+
+    alert('No tasks found for the previous day.');
+
+    return;
+  }
+
+
+  // Ask before copying
+  const confirmCopy =
+    confirm(
+      `Copy ${previousTasks.length} task(s) from the previous day?`
+    );
+
+  if (!confirmCopy) return;
+
+
+  // Copy tasks
+  previousTasks.forEach(task => {
+
+    tasks.push({
+
+      id: idCounter++,
+
+      text: task.text,
+
+      done: false,
+
+      priority: task.priority,
+
+      date: currentDateString
+
+    });
+
+  });
+
+
+  // Save
+  localStorage.setItem(
+    'tasks',
+    JSON.stringify(tasks)
+  );
+
+
+  // Update screen
+  render();
+
+  showCalendar();
+}
 
 
 // ====================
@@ -962,6 +1041,10 @@ input.addEventListener('keydown', (e) => {
 clearDoneBtn.addEventListener(
   'click',
   clearDone
+);
+copyPreviousDayBtn.addEventListener(
+  'click',
+  copyPreviousDay
 );
 
 
